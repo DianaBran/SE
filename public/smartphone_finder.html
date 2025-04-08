@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartPhone Finder</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #f0f4f8;
+        }
+
+        nav {
+            background-color: #0d6efd;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav .logo img {
+            height: 30px;
+        }
+
+        nav .logo span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        nav .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .container img.bg-phone {
+            margin-top: 40px;
+            opacity: 0.3;
+            max-height: 300px;
+            z-index: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #0d6efd;
+            color: white;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #094bcc;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #result img {
+            max-width: 200px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        .restart {
+            margin-top: 20px;
+            background-color: #6c757d;
+        }
+
+        .restart:hover {
+            background-color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="smartphone-finder-logo.png" alt="Logo">
+        <span>SmartPhone Finder</span>
+    </div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Profil</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h2 id="question">Întrebarea apare aici</h2>
+        <div class="button-group" id="answers"></div>
+        <div id="result"></div>
+    </div>
+    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-1.jpg" alt="bg-phone" class="bg-phone">
+</div>
+
+<script>
+    const questions = [
+        { text: "Care este bugetul tău?", options: ["Sub 1000 lei", "1000-3000 lei", "Peste 3000 lei"] },
+        { text: "Ce sistem de operare preferi?", options: ["Android", "iOS"] },
+        { text: "Câtă memorie RAM îți dorești?", options: ["4 GB", "6 GB", "8 GB sau mai mult"] },
+        { text: "Ai nevoie de cameră foto performantă?", options: ["Da", "Nu"] },
+        { text: "Cât de importantă este bateria pentru tine?", options: ["Foarte importantă", "Acceptabilă", "Nu contează prea mult"] },
+        { text: "Vrei telefon cu dual SIM?", options: ["Da", "Nu"] },
+        { text: "Ce dimensiune preferi pentru ecran?", options: ["Mic (< 6 inch)", "Mediu (6 - 6.5 inch)", "Mare (> 6.5 inch)"] }
+    ];
+
+    const recommendations = {
+  "Android|6 GB|Da|Foarte importantă|Da|Mare (> 6.5 inch)": {
+    name: "Samsung Galaxy S21",
+    image: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s21-5g-1.jpg"
+  },
+  "iOS|8 GB sau mai mult|Da|Acceptabilă|Nu|Mediu (6 - 6.5 inch)": {
+    name: "iPhone 14 Pro",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-1.jpg"
+  },
+  "Android|4 GB|Nu|Foarte importantă|Da|Mic (< 6 inch)": {
+    name: "Samsung Galaxy A13",
+    image: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a13-4g-1.jpg"
+  },
+  "iOS|4 GB|Nu|Nu contează prea mult|Nu|Mic (< 6 inch)": {
+    name: "iPhone SE",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-se-2022-1.jpg"
+  },
+  "Android|8 GB sau mai mult|Da|Foarte importantă|Da|Mare (> 6.5 inch)": {
+    name: "Samsung Galaxy S23 Ultra",
+    image: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-ultra-5g-1.jpg"
+  },
+  "Android|6 GB|Da|Acceptabilă|Da|Mediu (6 - 6.5 inch)": {
+    name: "Google Pixel 7",
+    image: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-7-1.jpg"
+  },
+  "Android|8 GB sau mai mult|Da|Acceptabilă|Da|Mare (> 6.5 inch)": {
+    name: "Xiaomi 13T Pro",
+    image: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-13t-pro-1.jpg"
+  },
+  "Android|6 GB|Nu|Acceptabilă|Da|Mediu (6 - 6.5 inch)": {
+    name: "OnePlus Nord CE 3",
+    image: "https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-nord-ce-3-lite-1.jpg"
+  },
+  "iOS|6 GB|Da|Foarte importantă|Nu|Mediu (6 - 6.5 inch)": {
+    name: "iPhone 14",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-1.jpg"
+  },
+  "iOS|8 GB sau mai mult|Da|Foarte importantă|Nu|Mare (> 6.5 inch)": {
+    name: "iPhone 14 Pro Max",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-max-1.jpg"
+  },
+  "Android|4 GB|Nu|Acceptabilă|Da|Mediu (6 - 6.5 inch)": {
+    name: "Samsung Galaxy A23",
+    image: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a23-1.jpg"
+  },
+  "Android|4 GB|Da|Nu contează prea mult|Da|Mic (< 6 inch)": {
+    name: "Motorola Moto G23",
+    image: "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g23-1.jpg"
+  },
+  "Android|6 GB|Da|Nu contează prea mult|Da|Mare (> 6.5 inch)": {
+    name: "Xiaomi Poco X5",
+    image: "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-1.jpg"
+  },
+  "iOS|6 GB|Nu|Acceptabilă|Nu|Mediu (6 - 6.5 inch)": {
+    name: "iPhone 13",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-01.jpg"
+  },
+  "Android|8 GB sau mai mult|Da|Nu contează prea mult|Da|Mare (> 6.5 inch)": {
+    name: "OnePlus 11",
+    image: "https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-11-1.jpg"
+  },
+  "Android|8 GB sau mai mult|Nu|Foarte importantă|Da|Mare (> 6.5 inch)": {
+    name: "Samsung Galaxy S22+",
+    image: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s22-plus-5g-2.jpg"
+  },
+  "Android|6 GB|Nu|Foarte importantă|Nu|Mediu (6 - 6.5 inch)": {
+    name: "Google Pixel 6a",
+    image: "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-6a-1.jpg"
+  },
+  "iOS|4 GB|Da|Acceptabilă|Nu|Mic (< 6 inch)": {
+    name: "iPhone 12 Mini",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-mini-1.jpg"
+  },
+  "Android|4 GB|Da|Acceptabilă|Nu|Mic (< 6 inch)": {
+    name: "Samsung Galaxy A33",
+    image: "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a33-5g-1.jpg"
+  },
+  "Android|8 GB sau mai mult|Nu|Nu contează prea mult|Da|Mare (> 6.5 inch)": {
+    name: "Oppo Find X5",
+    image: "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x5-1.jpg"
+  },
+  "iOS|6 GB|Da|Nu contează prea mult|Nu|Mediu (6 - 6.5 inch)": {
+    name: "iPhone 13 Pro",
+    image: "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-pro-01.jpg"
+  },
+  "Android|6 GB|Nu|Nu contează prea mult|Nu|Mic (< 6 inch)": {
+    name: "Sony Xperia 10 IV",
+    image: "https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-10-iv-1.jpg"
+  },
+  "default": {
+    name: "Telefon mediu recomandat: verifică opțiunile disponibile.",
+    image: "https://cdn-icons-png.flaticon.com/512/3304/3304569.png"
+  }
+};
+
+    let currentQuestion = 0;
+    let answers = [];
+
+    function showQuestion() {
+        const q = questions[currentQuestion];
+        document.getElementById("question").innerText = q.text;
+        const answersDiv = document.getElementById("answers");
+        answersDiv.innerHTML = "";
+        q.options.forEach(option => {
+            const btn = document.createElement("button");
+            btn.innerText = option;
+            btn.onclick = () => nextQuestion(option);
+            answersDiv.appendChild(btn);
+        });
+    }
+
+    function nextQuestion(answer) {
+        answers.push(answer);
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+    document.getElementById("question").innerText = "Recomandare telefon:";
+    document.getElementById("answers").innerHTML = "";
+    let key = answers.slice(1).join("|");
+    const result = recommendations[key] || recommendations["default"];
+    document.getElementById("result").innerHTML = `
+        <div>${result.name}</div>
+        <img src="${result.image}" alt="telefon">
+        <button class="restart" onclick="restart()">Reia selecția</button>
+    `;
+    // Adaugă pentru debugging
+    console.log("Cheie utilizată:", key);
+    console.log("Telefon recomandat:", result);
+}
+
+    function restart() {
+        currentQuestion = 0;
+        answers = [];
+        document.getElementById("result").innerHTML = "";
+        showQuestion();
+    }
+
+    showQuestion();
+</script>
+
+</body>
+</html>

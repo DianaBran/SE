@@ -1,0 +1,42 @@
+{
+  "g1": {
+    "intrebare": "Care este bugetul tău?",
+    "optiuni": ["sub-1000", "1000-3000", "peste-3000"]
+  },
+  "g2": {
+    "intrebare": "Ce marcă preferi?",
+    "optiuni": ["Samsung", "Apple", "Xiaomi", "Huawei", "Motorola", "OnePlus", "Alte mărci"]
+  },
+  "g3": {
+    "intrebare": "Ce capacitate de stocare internă dorești?",
+    "optiuni": ["64GB", "128GB", "256GB", "512GB"]
+  },
+  "g4": {
+    "intrebare": "Câtă memorie RAM îți dorești?",
+    "optiuni": ["4GB", "6GB", "8GB", "12GB"]
+  },
+  "g5": {
+    "intrebare": "Ce sistem de operare preferi?",
+    "optiuni": ["Android", "iOS", "EMUI (Android)"]
+  },
+  "g6": {
+    "intrebare": "Ce rezoluție a ecranului preferi?",
+    "optiuni": ["1334x750", "1600x720", "2340x1080", "2400x1080", "2532x1170"]
+  },
+  "g7": {
+    "intrebare": "Ce dimensiune a ecranului preferi?",
+    "optiuni": ["4.7 inch", "5.4 inch", "6.1 inch", "6.5 inch", "6.6 inch", "6.67 inch", "6.72 inch", "6.75 inch"]
+  },
+  "g8": {
+    "intrebare": "Câte sloturi SIM dorești?",
+    "optiuni": ["Single SIM", "Dual SIM"]
+  },
+  "g9": {
+    "intrebare": "Ce tehnologie de rețea preferi?",
+    "optiuni": ["4G", "5G"]
+  },
+  "g10": {
+    "intrebare": "Ce culoare preferi?",
+    "optiuni": ["Negru", "Alb", "Gri", "Albastru", "Verde", "Roșu", "Roz", "Violet"]
+  }
+}

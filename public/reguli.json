@@ -1,0 +1,122 @@
+{
+  "telefon1": {
+    "g1": "peste-3000",
+    "g2": "Samsung",
+    "g3": "128GB",
+    "g4": "8GB",
+    "g5": "Android",
+    "g6": "2340x1080",
+    "g7": "6.1 inch",
+    "g8": "Dual SIM",
+    "g9": "5G",
+    "g10": "Negru"
+  },
+  "telefon2": {
+    "g1": "peste-3000",
+    "g2": "Apple",
+    "g3": "128GB",
+    "g4": "6GB",
+    "g5": "iOS",
+    "g6": "2532x1170",
+    "g7": "6.1 inch",
+    "g8": "Single SIM",
+    "g9": "5G",
+    "g10": "Albastru"
+  },
+  "telefon3": {
+    "g1": "sub-1000",
+    "g2": "Xiaomi",
+    "g3": "64GB",
+    "g4": "4GB",
+    "g5": "Android",
+    "g6": "2400x1080",
+    "g7": "6.67 inch",
+    "g8": "Dual SIM",
+    "g9": "4G",
+    "g10": "Gri"
+  },
+  "telefon4": {
+    "g1": "1000-3000",
+    "g2": "Samsung",
+    "g3": "128GB",
+    "g4": "6GB",
+    "g5": "Android",
+    "g6": "2340x1080",
+    "g7": "6.6 inch",
+    "g8": "Dual SIM",
+    "g9": "5G",
+    "g10": "Verde"
+  },
+  "telefon5": {
+    "g1": "1000-3000",
+    "g2": "Apple",
+    "g3": "64GB",
+    "g4": "4GB",
+    "g5": "iOS",
+    "g6": "1334x750",
+    "g7": "4.7 inch",
+    "g8": "Single SIM",
+    "g9": "5G",
+    "g10": "Roșu"
+  },
+  "telefon6": {
+    "g1": "1000-3000",
+    "g2": "Motorola",
+    "g3": "128GB",
+    "g4": "8GB",
+    "g5": "Android",
+    "g6": "2400x1080",
+    "g7": "6.5 inch",
+    "g8": "Dual SIM",
+    "g9": "5G",
+    "g10": "Alb"
+  },
+  "telefon7": {
+    "g1": "sub-1000",
+    "g2": "Huawei",
+    "g3": "128GB",
+    "g4": "4GB",
+    "g5": "EMUI (Android)",
+    "g6": "1600x720",
+    "g7": "6.75 inch",
+    "g8": "Dual SIM",
+    "g9": "4G",
+    "g10": "Negru"
+  },
+  "telefon8": {
+    "g1": "1000-3000",
+    "g2": "OnePlus",
+    "g3": "128GB",
+    "g4": "8GB",
+    "g5": "Android",
+    "g6": "2400x1080",
+    "g7": "6.72 inch",
+    "g8": "Dual SIM",
+    "g9": "5G",
+    "g10": "Verde"
+  },
+  "telefon9": {
+    "g1": "1000-3000",
+    "g2": "Apple",
+    "g3": "128GB",
+    "g4": "4GB",
+    "g5": "iOS",
+    "g6": "2340x1080",
+    "g7": "5.4 inch",
+    "g8": "Single SIM",
+    "g9": "5G",
+    "g10": "Roz"
+  },
+  "telefon10": {
+    "g1": "1000-3000",
+    "g2": "Samsung",
+    "g3": "256GB",
+    "g4": "8GB",
+    "g5": "Android",
+    "g6": "2340x1080",
+    "g7": "6.1 inch",
+    "g8": "Dual SIM",
+    "g9": "5G",
+    "g10": "Violet"
+  }
+}

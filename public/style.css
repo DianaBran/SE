@@ -1,0 +1,223 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --main-color: #6fa8dc;
+  --main-light-color: #9fc5e8;
+  --container-color: #cfe2f3;
+  --text-color: #1a1d22;
+  --bg-color: #fff;
+}
+
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background: #474040;
+}
+html::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  background: var(--text-color);
+}
+img {
+  width: 100%;
+}
+body {
+  color: var(--text-color);
+}
+section {
+  padding: 4rem 0 2rem;
+}
+.container {
+  max-width: 938px;
+  margin: auto;
+}
+header {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+header.shadow {
+  background: var(--bg-color);
+  box-shadow: 2px 2px 4px rgb(15 54 55 / 10%);
+  transition: 0.2s;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.logo img {
+  width: 70px;
+}
+.navbar {
+  display: flex;
+  column-gap: 2rem;
+}
+.navbar a {
+  position: relative;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.navbar a:hover,
+.navbar .active {
+  color: var(--main-color);
+}
+.nav-icons {
+  display: flex;
+  column-gap: 1rem;
+}
+.nav-icons .bx {
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.nav-icons .bx:hover {
+  color: var(--main-color);
+}
+#menu-icon {
+  display: none;
+}
+.cart {
+  position: relative;
+}
+.cart span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -10px;
+  right: -8px;
+  font-size: 0.6rem;
+  height: 15px;
+  width: 15px;
+  background: var(--main-color);
+  border-radius: 50%;
+  padding: 4px;
+  color: var(--bg-color);
+}
+
+.home {
+  max-width: 1300px;
+  margin: auto;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  background: var(--container-color);
+}
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+}
+.home-text h1 {
+  font-size: 2.4rem;
+}
+.home-text p {
+  font-size: 0.938rem;
+  margin: 0.5rem 0 1.4rem;
+}
+.btn {
+  padding: 2px 4px;
+  font-size: 14px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  font-weight: 400;
+  border-radius: 0.5rem;
+}
+.btn:hover {
+  background: var(--main-light-color);
+}
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.heading span {
+  border-bottom: 3px solid var(--main-color);
+}
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+  gap: 1.5rem;
+}
+.form-container .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+  background-color: var(--container-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 1px 2px 4px rgb(15 54 55 / 10%);
+}
+.form-container .box img {
+  width: 180px;
+  object-fit: contain;
+  object-position: center;
+}
+.form-container .box img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.form-container .box .text h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.form-container .box .text a {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+
+.phone-details {
+  background-color: var(--container-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 20px auto;
+  width: calc(50% - 40px);
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.phone-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.phone-details h2 {
+  font-size: 1.0rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.phone-details p {
+  color: var(--text-color);
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.phone-details  span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--main-color);
+}
+
